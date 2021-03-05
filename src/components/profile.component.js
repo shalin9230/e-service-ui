@@ -3,9 +3,11 @@ import { Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
 import SupervisorDashboard from "./supervisor.component.js";
 import AdminDashboard from "./admin.component.js";
+import CustomerDashboard from "./customer.component.js";
 
 const ROLE_ADMIN = 'ROLE_ADMIN';
 const ROLE_SUPERVISOR = 'ROLE_SUPERVISOR';
+const ROLE_CUSTOMER = 'ROLE_CUSTOMER';
 
 class Profile extends Component {
 
@@ -37,7 +39,12 @@ class Profile extends Component {
               {...this.props}
              />
           }
-        </header>
+
+          {this.isAccess(ROLE_CUSTOMER) === true && 
+            <CustomerDashboard
+              {...this.props}
+             />
+          }        </header>
         
         <p>
           <strong>Id:</strong> {currentUser.id}

@@ -7,11 +7,7 @@ import "./App.css";
 
 import Login from "./components/login.component";
 import Register from "./components/register.component";
-import Home from "./components/home.component";
 import Profile from "./components/profile.component";
-import BoardUser from "./components/board-user.component";
-import BoardModerator from "./components/board-moderator.component";
-import BoardAdmin from "./components/board-admin.component";
 
 import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/message";
@@ -60,15 +56,6 @@ class App extends Component {
             <Link to={"/"} className="navbar-brand">
               E-Service
             </Link>
-            <div className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <Link to={"/profile"} className="nav-link">
-                  Dashboard
-                </Link>
-              </li>
-
-              
-            </div>
 
             {currentUser ? (
               <div className="navbar-nav ml-auto">
@@ -105,9 +92,6 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
               <Route exact path={["/", "/profile"]} component={Profile} />
-              <Route path="/user" component={BoardUser} />
-              <Route path="/super" component={BoardModerator} />
-              <Route path="/admin" component={BoardAdmin} />
             </Switch>
           </div>
         </div>
